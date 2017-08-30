@@ -4,11 +4,16 @@
   "description": "Um chatbot integrado ao Facebook Messenger para informar o câmbio diário em Reais Brasileiros",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Matheus Freitag",
   "license": "ISC",
   "dependencies": {
+    "apiai": "^4.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "multer": "^1.3.0",
     "prompt": "^1.0.0",
     "request": "^2.81.0"
   }
