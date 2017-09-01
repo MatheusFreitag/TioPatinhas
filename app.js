@@ -44,7 +44,6 @@ var callAPIAI = function(id,text){
             }
             else{
                 var resposta = body.result.fulfillment.speech;
-                console.log("Mensagem chegou: " + resposta);
                 callFixerIO(id, resposta, body);
             }
             
