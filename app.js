@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 var callAPIAI = function(id,text){
 
+    console.log(text)
     text = helpers.rsc(text);
 
     var reqObj = {
@@ -40,17 +41,28 @@ var callAPIAI = function(id,text){
             cb(false)
         } 
         else {
-            if(body.result.action !== "smalltalk.greetings.hello"){
-                sendText(id,body.result.fulfillment.speech);
+
+            var acao = body.result.action
+            console.log(acao)
+
+            switch(acao){
+                
+                case "Oi":
+                    sendText(id,body.result.fulfillment.speech)
+                    break
+                case "Cotacao":
+                    sendText(id, "Pedido de cotação!")
+                    break
+                case "Converter":
+                    var resposta = body.result.fulfillment.speech
+                    callFixerIO(id, resposta, body)
+                    break
+                default:
+                    sendText(id,body.result.fulfillment.speech)
+                    break
+
             }
-            else if(body.result.action === "cotacao"){
-                sendText("Pedido de cotação!");
-            }
-            else{
-                var resposta = body.result.fulfillment.speech;
-                callFixerIO(id, resposta, body);
-            }
-            
+           
         }       
     });    
 }
@@ -98,6 +110,7 @@ var convertionHandler = function (text, id, apiai, cotacoes) {
 
 
 var sendText = function(id,text){
+    console.log(text)
     let message = {text: text}
     request({
         url: "https://graph.facebook.com/v2.6/me/messages",
