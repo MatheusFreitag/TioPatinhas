@@ -40,8 +40,11 @@ var callAPIAI = function(id,text){
             cb(false)
         } 
         else {
-            if(body.result.action !== "Converter"){
+            if(body.result.action !== "smalltalk.greetings.hello"){
                 sendText(id,body.result.fulfillment.speech);
+            }
+            else if(body.result.action === "cotacao"){
+                sendText("Pedido de cotação!");
             }
             else{
                 var resposta = body.result.fulfillment.speech;
