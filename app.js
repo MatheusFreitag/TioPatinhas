@@ -5,6 +5,7 @@ const bodyParser     = require('body-parser');
 const http           = require('http');
 const request        = require('request');
 const helpers        = require('./helpers.js');
+const emoji          = require('node-emoji')
 const token = "EAABngOQ8JQUBAPQsX3Tadyj6DgfB0am7lMdVUNymZBYJt8U7IyfH5u4UDEwRywCddKnGme3ZBX16KmzKeoSyRaA5ZBsqkCmuKEPl8fUgVefSUeiiO2HIJoMWL68mksuYpib3DjsaBb0vOfi6hV6rmJn5ludHCOOcfeYqXQCeQZDZD";
 
 
@@ -84,6 +85,9 @@ var convertionHandler = function (text, id, apiai, cotacoes) {
     }
 
     text = text.replace("YY", String(resultado.toFixed(2)));
+    text = emoji.emojify(text, (t)=>{
+        return t
+    })
     
     sendText(id, text);
 }
