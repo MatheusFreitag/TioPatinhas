@@ -14,36 +14,7 @@ module.exports = {
             text = text.replace('ã', 'a');
             text = text.replace('ç', 'c');
             return text;
-    },
-
-    convertionHandler: function (speech, cotacoes) { 
-        return new Promise((resolve, reject)=>{
-            var moedaOrigem = speech.result.parameters.moeda;
-            var moedaDestino = speech.result.parameters.moeda1;
-            var valor = speech.result.parameters.number;
-            var resultado;
-            var multiplicador;
-
-            switch(moedaOrigem){
-                case "reais":
-                     multiplicador = cotacoes.rates.USD;
-                     resultado = Number(valor) * Number(multiplicador);
-                     break;
-
-                case "dolares":
-                      multiplicador = cotacoes.rates.USD;
-                      resultado = Number(valor) / Number(multiplicador);
-                      break;
-            }
-
-            speech = speech.replace("YY", String(resultado));
-
-            return resolve(speech);
-
-        });
-    },
-
-    
+    }
 
 };
     
