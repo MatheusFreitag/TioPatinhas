@@ -37,75 +37,77 @@ app.speechHandler = function(text, id, cb) {
       }
     };
 
-    //console.log("\n\n\n\n\n" + reqObj.json.query + "\n\n\n\n\n");
 
-    var chamarFixer = function(speech){
-        request("http://api.fixer.io/latest?base=BRL",function(error, response, body){
-            if (error) {
-                console.log('Error sending message: ', JSON.stringify(error));
-                cb(false)
-              } 
-            else {
-                var cotacoes = JSON.parse(body);
-                convertionHandler(speech,cotacoes, montarCallback);  
-            }       
-        });
-    }
+    cb(chamarAPIAI(reqObj));
 
-    var chamarAPIAI = function(){
-        request(reqObj, function(error, response, body){
-            if (error) {
-                console.log('Error sending message: ', JSON.stringify(error));
-                cb(false)
-              } 
-              else {
-                var speech = body.result.fulfillment.speech;
-                console.log("Mensagem chegou: " + speech);
-                chamarFixer(body);
-              }       
-        });
-    }
+    // var montarCallback = function(speech){
+    //     cb(speech);
+    // }
 
-    var convertionHandler = function (body, cotacoes) { 
-
-        if(String(body.result.action) !== "Converter"){
-            return montarCallback(body.result.fulfillment.speech);
-        }
-
-        var speech = body.result.fulfillment.speech;
-
-        var moedaOrigem = body.result.parameters.moeda;
-        var moedaDestino = body.result.parameters.moeda1;
-        var valor = body.result.parameters.number;
-        var resultado;
-        var multiplicador;
-
-        switch(moedaOrigem){
-            case "reais":
-                    multiplicador = cotacoes.rates.USD;
-                    resultado = Number(valor) * Number(multiplicador);
-                    break;
-
-            case "dolares":
-                    multiplicador = cotacoes.rates.USD;
-                    resultado = Number(valor) / Number(multiplicador);
-                    break;
-        }
-
-        speech = speech.replace("YY", String(resultado));
-        
-        return montarCallback(speech);
-    }
-        
-
-    var montarCallback = function(speech){
-        cb(speech);
-    }
-
-    chamarAPIAI();
+    
 
 }
 
+var chamarFixer = function(speech){
+  request("http://api.fixer.io/latest?base=BRL",function(error, response, body){
+    if (error) {
+        console.log('Error sending message: ', JSON.stringify(error));
+        cb(false)
+    } 
+    else {
+        var cotacoes = JSON.parse(body);
+        convertionHandler(speech,cotacoes);  
+    }       
+  });
+}
+
+
+var chamarAPIAI = function(reqObj){
+  request(reqObj, function(error, response, body){
+    if (error) {
+        console.log('Error sending message: ', JSON.stringify(error));
+        cb(false)
+    } 
+    else {
+      var speech = body.result.fulfillment.speech;
+      console.log("Mensagem chegou: " + speech);
+      chamarFixer(body);
+    }       
+  });
+}
+
+var convertionHandler = function (body, cotacoes) { 
+  if(String(body.result.action) !== "Converter"){
+      return body.result.fulfillment.speech;
+  }
+  else{
+    var speech = body.result.fulfillment.speech;
+    var moedaOrigem = body.result.parameters.moeda;
+    var moedaDestino = body.result.parameters.moeda1;
+    var valor = body.result.parameters.number;
+    var resultado;
+    var multiplicador;
+
+    switch(moedaOrigem){
+      case "reais":
+              multiplicador = cotacoes.rates.USD;
+              resultado = Number(valor) * Number(multiplicador);
+              break;
+
+      case "dolares":
+              multiplicador = cotacoes.rates.USD;
+              resultado = Number(valor) / Number(multiplicador);
+              break;
+    }
+
+    speech = speech.replace("YY", String(resultado));
+  
+    return speech;
+
+  }
+
+        
+}
 
 app.messageHandler = function(text, id, cb) {
     var data = {
@@ -141,15 +143,18 @@ app.messageHandler = function(text, id, cb) {
 
 
 app.post('/fb', function(req, res){
-    console.log("\nUma vez\n");
+    console.log("\nPost \n");
     var id = req.body.entry[0].messaging[0].sender.id;
     var text = req.body.entry[0].messaging[0].message.text;
+    console.log("Foi");
 
     app.speechHandler(text, id, function(speech){
       app.messageHandler(speech, id, function(result){
+        
       });
     });
 
+    console.log(req.body);
     res.send(req.body);
 });
 
