@@ -75,15 +75,41 @@ var callFixerIO = function(id,resposta, apiai){
             return false;
         } 
         else if (resposta === "COTACAO"){
-          var listaDeCotacoes = emoji.emojify(`
+          sendText(id,`
             🇧🇷 R$ 1,00 vale:\n
             🇦🇺  ${fixer.rates.AUD.toFixed(2)} Dólares Australianos \n
             🇧🇬  ${fixer.rates.BGN.toFixed(2)} Lev Búlgaros \n
             🇨🇦  ${fixer.rates.CAD.toFixed(2)} Dólares Canadenses \n
-(Ultima atualização feita pelo Banco Central Europeu em ${fixer.date.substring(8,10)}.${fixer.date.substring(5,7)}.${fixer.date.substring(0,4)})\n
-          `)
-
-          sendText(id, listaDeCotacoes)
+            🇨🇭  ${fixer.rates.CHF.toFixed(2)} Francos Suiço\n
+            🇨🇳  ${fixer.rates.CNY.toFixed(2)} Yuan Renminbi Chinês\n
+            🇨🇿  ${fixer.rates.CZK.toFixed(2)} Coroas Checas\n
+            🇩🇰  ${fixer.rates.DKK.toFixed(2)} Coroas Dinamarquesas\n
+            🇬🇧  ${fixer.rates.GBP.toFixed(2)} Libras esterlinas\n
+            🇭🇰  ${fixer.rates.HKD.toFixed(2)} Dólares de Hong Kong\n
+            🇭🇷  ${fixer.rates.HRK.toFixed(2)} Kunas Croatas\n
+            🇭🇺  ${fixer.rates.HUF.toFixed(2)} Florim Húngaros\n
+            🇮🇩  ${fixer.rates.IDR.toFixed(2)} Rupias Indonesia\n
+            🇮🇱  ${fixer.rates.ILS.toFixed(2)} Shekel Israelenses\n
+            🇮🇳  ${fixer.rates.INR.toFixed(2)} Rupias Indianas\n
+            🇯🇵  ${fixer.rates.JPY.toFixed(2)} Ienes Japoneses\n
+            `)
+            sendText(id,`
+            🇧🇷 R$ 1,00 vale:\n
+            🇰🇷  ${fixer.rates.KRW.toFixed(2)} Won sul-coreano\n
+            🇲🇽  ${fixer.rates.MXN.toFixed(2)} Pesos Mexicanos\n
+            🇲🇾  ${fixer.rates.MYR.toFixed(2)} Ringgit Malaios\n
+            🇳🇴  ${fixer.rates.NOK.toFixed(2)} Coroas Norueguesas\n
+            🇳🇿  ${fixer.rates.NZD.toFixed(2)} Dólares Neozelandês\n
+            🇵🇭  ${fixer.rates.PHP.toFixed(2)} Pesos Philipino\n
+            🇵🇱  ${fixer.rates.PLN.toFixed(2)} Złoty Polonêses\n
+            🇷🇴  ${fixer.rates.RON.toFixed(2)} Leu Romenos\n
+            🇷🇺  ${fixer.rates.RUB.toFixed(2)} Rublo Russos\n
+            🇸🇪  ${fixer.rates.SEK.toFixed(2)} Coroas Suecas\n
+            🇸🇬  ${fixer.rates.SGD.toFixed(2)} Dólares de Singapura\n
+            🇹🇭  ${fixer.rates.THB.toFixed(2)} Baht Thailandês\n
+            🇹🇷  ${fixer.rates.TRY.toFixed(2)} Liras Turcas\n
+            🇺🇸  ${fixer.rates.USD.toFixed(2)} Dólares Americanos\n
+            🇿🇦  ${fixer.rates.ZAR.toFixed(2)} Rand SulAfricanos\n\n`)
         }
         else {
             convertionHandler(resposta, id, apiai, fixer.rates);
@@ -176,3 +202,29 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
+/* 🇨🇳  ${fixer.rates.CNY.toFixed(2)} Yuan Renminbi Chinês\n
+🇨🇿  ${fixer.rates.CZK.toFixed(2)} Coroas Checas\n
+🇩🇰  ${fixer.rates.DKK.toFixed(2)} Coroas Dinamarquesas\n
+🇬🇧  ${fixer.rates.GBP.toFixed(2)} Libras esterlinas\n
+🇭🇰  ${fixer.rates.HKD.toFixed(2)} Dólares de Hong Kong\n
+🇭🇷  ${fixer.rates.HRK.toFixed(2)} Kunas Croatas\n
+🇭🇺  ${fixer.rates.HUF.toFixed(2)} Florim Húngaros\n
+🇮🇩  ${fixer.rates.IDR.toFixed(2)} Rupias Indonesia\n
+🇮🇱  ${fixer.rates.ILS.toFixed(2)} Shekel Israelenses\n
+🇮🇳  ${fixer.rates.INR.toFixed(2)} Rupias Indianas\n
+🇯🇵  ${fixer.rates.JPY.toFixed(2)} Ienes Japoneses\n
+🇰🇷  ${fixer.rates.KRW.toFixed(2)} Won sul-coreano\n
+🇲🇽  ${fixer.rates.MXN.toFixed(2)} Pesos Mexicanos\n
+🇲🇾  ${fixer.rates.MYR.toFixed(2)} Ringgit Malaios\n
+🇳🇴  ${fixer.rates.NOK.toFixed(2)} Coroas Norueguesas\n
+🇳🇿  ${fixer.rates.NZD.toFixed(2)} Dólares Neozelandês\n
+🇵🇭  ${fixer.rates.PHP.toFixed(2)} Pesos Philipino\n
+🇵🇱  ${fixer.rates.PLN.toFixed(2)} Złoty Polonêses\n
+🇷🇴  ${fixer.rates.RON.toFixed(2)} Leu Romenos\n
+🇷🇺  ${fixer.rates.RUB.toFixed(2)} Rublo Russos\n
+🇸🇪  ${fixer.rates.SEK.toFixed(2)} Coroas Suecas\n
+🇸🇬  ${fixer.rates.SGD.toFixed(2)} Dólares de Singapura\n
+🇹🇭  ${fixer.rates.THB.toFixed(2)} Baht Thailandês\n
+🇹🇷  ${fixer.rates.TRY.toFixed(2)} Liras Turcas\n
+🇺🇸  ${fixer.rates.USD.toFixed(2)} Dólares Americanos\n
+🇿🇦  ${fixer.rates.ZAR.toFixed(2)} Rand SulAfricanos\n\n*/
