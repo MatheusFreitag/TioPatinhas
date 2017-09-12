@@ -126,14 +126,26 @@ var convertionHandler = function (text, id, apiai, cotacoes) {
 
     switch(moedaOrigem){
         case "reais":
-                multiplicador = cotacoes.USD;
-                resultado = Number(valor) * Number(multiplicador);
-                break;
+            if(moedaDestino === "dólares australianos") multiplicador = cotacoes.AUD;
+            if(moedaDestino === "pesos mexicanos") multiplicador = cotacoes.MXN;
+            if(moedaDestino === "dólares") multiplicador = cotacoes.USD;
+            resultado = Number(valor) * Number(multiplicador);
+            break;
 
         case "dólares":
-                multiplicador = cotacoes.USD;
-                resultado = Number(valor) / Number(multiplicador);
-                break;
+            multiplicador = cotacoes.USD;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "pesos mexicanos":
+            multiplicador = cotacoes.MXN;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "dólares australianos":
+            multiplicador = cotacoes.AUD;
+            resultado = Number(valor) / Number(multiplicador);
+            break;    
     }
 
     text = text.replace("YY", String(resultado.toFixed(2)));
