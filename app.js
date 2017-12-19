@@ -57,6 +57,13 @@ var callAPIAI = function(id,text){
                     var resposta = body.result.fulfillment.speech
                     callFixerIO(id, resposta, body)
                     break
+                case "selfie":
+                    sendSelfie(id);
+                    break;
+                    
+                case "listar":
+                    sendLista(id);
+                    break;    
                 default:
                     sendText(id,body.result.fulfillment.speech)
                     break
@@ -109,7 +116,8 @@ var callFixerIO = function(id,resposta, apiai){
             🇹🇭  ${fixer.rates.THB.toFixed(2)} Baht Thailandês\n
             🇹🇷  ${fixer.rates.TRY.toFixed(2)} Liras Turcas\n
             🇺🇸  ${fixer.rates.USD.toFixed(2)} Dólares Americanos\n
-            🇿🇦  ${fixer.rates.ZAR.toFixed(2)} Rand SulAfricanos\n\n`)
+            🇿🇦  ${fixer.rates.ZAR.toFixed(2)} Rand SulAfricanos\n
+            🇪🇺  ${fixer.rates.EUR.toFixed(2)} Euros\n`)
         }
         else {
             convertionHandler(resposta, id, apiai, fixer.rates);
@@ -123,14 +131,46 @@ var convertionHandler = function (text, id, apiai, cotacoes) {
     var valor = apiai.result.parameters.number;
     var resultado;
     var multiplicador;
-
+    // console.log(moedaOrigem);
+    // console.log(moedaDestino);
     switch(moedaOrigem){
         case "reais":
             if(moedaDestino === "dólares australianos") multiplicador = cotacoes.AUD;
-            if(moedaDestino === "pesos mexicanos") multiplicador = cotacoes.MXN;
-            if(moedaDestino === "dólares") multiplicador = cotacoes.USD;
+            if(moedaDestino === "pesos mexicanos")      multiplicador = cotacoes.MXN;
+            if(moedaDestino === "dólares")              multiplicador = cotacoes.USD;
+            if(moedaDestino === "lev búlgaros")         multiplicador = cotacoes.BGN;
+            if(moedaDestino === "dólares canadenses")   multiplicador = cotacoes.CAD;
+            if(moedaDestino === "francos suiços")       multiplicador = cotacoes.CHF;
+            if(moedaDestino === "Yuan Renminbi Chinês") multiplicador = cotacoes.CNY;
+            if(moedaDestino === "Coroas Checas")        multiplicador = cotacoes.CZK;
+            if(moedaDestino === "Coroas Dinamarquesas") multiplicador = cotacoes.DKK;
+            if(moedaDestino === "Libras esterlinas")    multiplicador = cotacoes.GBP;
+            if(moedaDestino === "Dólares de Hong Kong") multiplicador = cotacoes.HKD;
+            if(moedaDestino === "Kunas Croatas")        multiplicador = cotacoes.HRK;
+            if(moedaDestino === "Florim Húngaros")      multiplicador = cotacoes.HRK;
+            if(moedaDestino === "Rupias Indonesias")    multiplicador = cotacoes.IDR;
+            if(moedaDestino === "Shekel Israelenses")   multiplicador = cotacoes.ILS;
+            if(moedaDestino === "Rupias Indianas")      multiplicador = cotacoes.INR;
+            if(moedaDestino === "Ienes Japoneses")      multiplicador = cotacoes.JPY;
+            if(moedaDestino === "Won sul-coreano")      multiplicador = cotacoes.KRW;
+            if(moedaDestino === "Pesos Mexicanos")      multiplicador = cotacoes.MXN;
+            if(moedaDestino === "Ringgit Malaios")      multiplicador = cotacoes.MYR;
+            if(moedaDestino === "Coroas Norueguesas")   multiplicador = cotacoes.NOK;
+            if(moedaDestino === "Dólares Neozelandês")  multiplicador = cotacoes.NZD;
+            if(moedaDestino === "Pesos Philipino")      multiplicador = cotacoes.PHP;
+            if(moedaDestino === "Leu Romenos")          multiplicador = cotacoes.RON;
+            if(moedaDestino === "Złoty Polonêses")      multiplicador = cotacoes.PLN;
+            if(moedaDestino === "Rublo Russos")         multiplicador = cotacoes.RUB;
+            if(moedaDestino === "Coroas Suecas")        multiplicador = cotacoes.SEK;
+            if(moedaDestino === "Dólares de Singapura") multiplicador = cotacoes.SGD;
+            if(moedaDestino === "Baht Thailandês")      multiplicador = cotacoes.THB;
+            if(moedaDestino === "Liras Turcas")         multiplicador = cotacoes.TRY;
+            if(moedaDestino === "Rand SulAfricanos")    multiplicador = cotacoes.ZAR;
+            if(moedaDestino === "Euros")                multiplicador = cotacoes.EUR;
+
             resultado = Number(valor) * Number(multiplicador);
             break;
+
 
         case "dólares":
             multiplicador = cotacoes.USD;
@@ -145,18 +185,231 @@ var convertionHandler = function (text, id, apiai, cotacoes) {
         case "dólares australianos":
             multiplicador = cotacoes.AUD;
             resultado = Number(valor) / Number(multiplicador);
+            break;  
+        
+        case "lev búlgaros":
+            multiplicador = cotacoes.BGN;
+            resultado = Number(valor) / Number(multiplicador);
+            break;  
+
+        case "dólares canadenses":
+            multiplicador = cotacoes.CAD;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
+            
+        case "francos suiços":
+            multiplicador = cotacoes.CHF;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "Yuan Renminbi Chinês":
+            multiplicador = cotacoes.CNY;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "Coroas Checas":
+            multiplicador = cotacoes.CZK;
+            resultado = Number(valor) / Number(multiplicador);
             break;    
+
+        case "Coroas Dinamarquesas":
+            multiplicador = cotacoes.DKK;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+        
+        case "Libras esterlinas":
+            multiplicador = cotacoes.GBP;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+        
+        case "Dólares de Hong Kong":
+            multiplicador = cotacoes.HKD;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+        
+        case "Kunas Croatas":
+            multiplicador = cotacoes.HRK;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "Florim Húngaros":
+            multiplicador = cotacoes.HRK;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
+        
+        case "Rupias Indonesias":
+            multiplicador = cotacoes.IDR;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
+
+        case "Shekel Israelenses":
+            multiplicador = cotacoes.ILS;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
+
+        case "Rupias Indianas":
+            multiplicador = cotacoes.INR;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+            
+        case "Ienes Japoneses":
+            multiplicador = cotacoes.JPY;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+            
+        case "Won sul-coreano":
+            multiplicador = cotacoes.KRW;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+            
+        case "Pesos Mexicanos":
+            multiplicador = cotacoes.MXN;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
+            
+        case "Ringgit Malaios":
+            multiplicador = cotacoes.MYR;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+            
+        case "Coroas Norueguesas":
+            multiplicador = cotacoes.NOK;
+            resultado = Number(valor) / Number(multiplicador);
+            break;    
+            
+        case "Dólares Neozelandês":
+            multiplicador = cotacoes.NZD;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
+        
+        case "Pesos Philipino":
+            multiplicador = cotacoes.PHP;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
+
+        case "Leu Romenos":
+            multiplicador = cotacoes.RON;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+            
+        case "Złoty Polonêses":
+            multiplicador = cotacoes.PLN;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+            
+        case "Rublo Russos":
+            multiplicador = cotacoes.RUB;
+            resultado = Number(valor) / Number(multiplicador);
+            break;    
+            
+        case "Coroas Suecas":
+            multiplicador = cotacoes.SEK;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "Dólares de Singapura":
+            multiplicador = cotacoes.SGD;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "Baht Thailandês":
+            multiplicador = cotacoes.THB;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+        
+        case "Liras Turcas":
+            multiplicador = cotacoes.TRY;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+        
+        case "Rand SulAfricanos":
+            multiplicador = cotacoes.ZAR;
+            resultado = Number(valor) / Number(multiplicador);
+            break;
+
+        case "Euros":
+            multiplicador = cotacoes.EUR;
+            resultado = Number(valor) / Number(multiplicador);
+            break; 
     }
 
     text = text.replace("YY", String(resultado.toFixed(2)));
     text = emoji.emojify(text, (t)=>{
         return t
     })
-    
     sendText(id, text);
 }
 
 
+var sendLista = function(id){
+    let lista1 = `
+            \n🇦🇺  Dólares Australianos \n
+            🇧🇬  Lev Búlgaros \n
+            🇨🇦  Dólares Canadenses \n
+            🇨🇭  Francos Suiço\n
+            🇨🇳  Yuan Renminbi Chinês\n
+            🇨🇿  Coroas Checas\n
+            🇩🇰  Coroas Dinamarquesas\n
+            🇬🇧  Libras esterlinas\n
+            🇭🇰  Dólares de Hong Kong\n
+            🇭🇷  Kunas Croatas\n
+            🇭🇺  Florim Húngaros\n
+            🇮🇩  Rupias Indonesia\n
+            🇮🇱  Shekel Israelenses\n
+            🇮🇳  Rupias Indianas\n
+            🇯🇵  Ienes Japoneses\n`
+    let lista2 = `
+            \n🇰🇷  Won sul-coreano\n
+            🇲🇽  Pesos Mexicanos\n
+            🇲🇾  Ringgit Malaios\n
+            🇳🇴  Coroas Norueguesas\n
+            🇳🇿  Dólares Neozelandês\n
+            🇵🇭  Pesos Philipino\n
+            🇵🇱  Złoty Polonêses\n
+            🇷🇴  Leu Romenos\n
+            🇷🇺  Rublo Russos\n
+            🇸🇪  Coroas Suecas\n
+            🇸🇬  Dólares de Singapura\n
+            🇹🇭  Baht Thailandês\n
+            🇹🇷  Liras Turcas\n
+            🇺🇸  Dólares Americanos\n
+            🇿🇦  Rand SulAfricanos\n
+            🇪🇺  Euros\n`;
+
+            sendText(id, lista1);
+            sendText(id, lista2);
+}
+
+var sendSelfie = function(id){
+    let message = {
+        attachment:{
+        type: "image", 
+        payload:{
+            url:"https://i.imgur.com/eV1b5Jo.jpg", 
+            is_reusable:true
+        }
+        }
+    }
+    request({
+        url: "https://graph.facebook.com/v2.6/me/messages",
+        qs : {access_token: token},
+        method: "POST",
+        json: {
+			recipient: {id: id},
+			message : message,
+        }, 
+        function(error, response,body) {
+            if (error) {
+                console.log("sending error")
+            } 
+            else if (response.body.error) {
+                console.log("response body error")
+            }
+        }
+    })
+
+    //return true
+}
 
 var sendText = function(id,text){
     console.log(text)
