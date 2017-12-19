@@ -131,8 +131,12 @@ var convertionHandler = function (text, id, apiai, cotacoes) {
     var valor = apiai.result.parameters.number;
     var resultado;
     var multiplicador;
-    // console.log(moedaOrigem);
-    // console.log(moedaDestino);
+    
+    if (!valor){
+        moedaDestino = "reais";
+        valor = 1;
+    }
+
     switch(moedaOrigem){
         case "reais":
             if(moedaDestino === "dólares australianos") multiplicador = cotacoes.AUD;
