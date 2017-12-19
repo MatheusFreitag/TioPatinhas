@@ -126,16 +126,22 @@ var callFixerIO = function(id,resposta, apiai){
 }
 
 var convertionHandler = function (text, id, apiai, cotacoes) { 
+    
     var moedaOrigem = apiai.result.parameters.moeda[0];
     var moedaDestino = apiai.result.parameters.moeda1[0];
     var valor = apiai.result.parameters.number;
     var resultado;
     var multiplicador;
     
-    if (!valor){
-        moedaDestino = "reais";
-        valor = 1;
-    }
+    if (typeof valor == "object") valor = 1;
+    if (moedaOrigem == undefined) moedaOrigem = "reais";
+
+
+    if(text == "") text = `Na última cotação que tive acesso, ${valor} ${moedaDestino} valia YY reais`;
+    
+    console.log('Moeda de Origem: ' + moedaOrigem);
+    console.log('Moeda de Destino: ' + moedaDestino);
+    
 
     switch(moedaOrigem){
         case "reais":
@@ -336,11 +342,11 @@ var convertionHandler = function (text, id, apiai, cotacoes) {
             resultado = Number(valor) / Number(multiplicador);
             break; 
     }
-
+    
     text = text.replace("YY", String(resultado.toFixed(2)));
-    text = emoji.emojify(text, (t)=>{
-        return t
-    })
+    text = emoji.emojify(text, (t)=>{ return t })
+    console.log('Saida: '+ text);
+    
     sendText(id, text);
 }
 
@@ -416,7 +422,7 @@ var sendSelfie = function(id){
 }
 
 var sendText = function(id,text){
-    console.log(text)
+    console.log("Texto " + text);
     let message = {text: text}
     request({
         url: "https://graph.facebook.com/v2.6/me/messages",
