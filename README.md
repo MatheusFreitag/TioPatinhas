@@ -43,9 +43,10 @@ Diversas! Algumas delas são:
 <br>
 
 ||Criptomoedas|| 
-|:--------:|:--------:|:--------:|:--------:|
-|BTC - Bitcoin|LTC - Litecoin| ETH - Ethereum| ZEC - Zcash|
-|XRP - Ripple| XMR - Monero| IOTA - IOTA| BTG - Bitcoin Gold |
+|:--------:|:--------:|:--------:|
+|BTC - Bitcoin|LTC - Litecoin| ETH - Ethereum| 
+|ZEC - Zcash| XRP - Ripple| XMR - Monero| 
+|IOTA - IOTA| BTG - Bitcoin Gold |
 
 
 
