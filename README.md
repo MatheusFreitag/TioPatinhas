@@ -48,6 +48,8 @@ Diversas! Algumas delas são:
 |XRP - Ripple| XMR - Monero| IOTA - IOTA| BTG - Bitcoin Gold
 
 
+
+
 ## Exemplos de coisas que posso perguntar ao Tio Patinhas
 
 - "Qual a cotação do dia?"
