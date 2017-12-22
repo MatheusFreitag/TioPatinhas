@@ -95,6 +95,5 @@ O Tio Patinhas **não requisita** nenhuma informação sensível e/ou pessoal, c
 *__Não forneça__* esse tipo de informação, pois a responsabilidade é interiramente do usuário do bot. 
 
 
-
 ## Disclaimer
 O nome do bot é "Tio Patinhas", mas seu criador não possui direitos de imagem e nome sobre o personagem que batiza o bot. Se você é ou representa alguma organização que possui direitos sobre o nome ou imagem do personagem e gostaria que estas informações sejam desvinculadas do bot, por favor entre em contato pelo email freitag.matheus@gmail.com.
