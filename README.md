@@ -28,7 +28,7 @@ Diversas! Algumas delas são:
 |🇬🇧  Libras Esterlinas| 🇭🇺  Florim Húngaros| 🇪🇺  Euros| 
 |🇨🇭  Francos Suiço| 🇳🇴  Coroas Norueguesas| 🇷🇺  Rublo Russos| 
 |🇸🇪  Coroas Suecas| 🇭🇷  Kunas Croatas| 🇵🇱  Złoty Polonêses| 
-|🇷🇴  Leu Romenos| 🇹🇷  Liras Turcas| 
+|🇷🇴  Leu Romenos| 🇹🇷  Liras Turcas| 🇿🇦  Rand SulAfricanos |
 
 <br>
 
