@@ -13,57 +13,39 @@ O Tio Patinhas apresenta uma _estimativa_, porém casas de câmbio podem aplicar
 ## Com quais moedas o Tio Patinhas trabalha?
 Diversas! Algumas delas são: 
 
-🇧🇷  Real Brasileiro<br>
-🇺🇾 Pesos Uruguaios<br>
-🇦🇷 Pesos Argentinos<br>
-🇨🇱 Pesos Chilenos<br>
-🇧🇴 Bolivians Bolivianos<br>
-🇵🇪 Pesos Peruanos<br>
-🇵🇾 Guaranis Paraguaios<br>
-🇨🇴 Peso Colombiano<br>
-🇦🇺  Dólares Australianos<br> 
-🇧🇬  Lev Búlgaros<br> 
-🇨🇦  Dólares Canadenses<br> 
-🇨🇭  Francos Suiço<br> 
-🇨🇳  Yuan Renminbi Chinês<br> 
-🇨🇿  Coroas Checas<br> 
-🇩🇰  Coroas Dinamarquesas<br> 
-🇬🇧  Libras Esterlinas<br> 
-🇭🇰  Dólares de Hong Kong<br> 
-🇭🇷  Kunas Croatas<br> 
-🇭🇺  Florim Húngaros<br> 
-🇮🇩  Rupias Indonesia<br> 
-🇮🇱  Shekel Israelenses<br> 
-🇮🇳  Rupias Indianas<br> 
-🇯🇵  Ienes Japoneses<br> 
-🇰🇷  Won sul-coreano<br> 
-🇲🇽  Pesos Mexicanos<br> 
-🇲🇾  Ringgit Malaios<br> 
-🇳🇴  Coroas Norueguesas<br> 
-🇳🇿  Dólares Neozelandês<br> 
-🇵🇭  Pesos Philipino<br> 
-🇵🇱  Złoty Polonêses<br> 
-🇷🇴  Leu Romenos<br> 
-🇷🇺  Rublo Russos<br> 
-🇸🇪  Coroas Suecas<br> 
-🇸🇬  Dólares de Singapura<br> 
-🇹🇭  Baht Thailandês<br> 
-🇹🇷  Liras Turcas<br> 
-🇺🇸  Dólares Americanos<br> 
-🇿🇦  Rand SulAfricanos<br> 
-🇪🇺  Euros<br> 
+||Américas||
+|:------------:|:------------:|:------------:|
+| 🇧🇷  Real Brasileiro|🇺🇾 Pesos Uruguaios| 🇦🇷 Pesos Argentinos |
+| 🇨🇱 Pesos Chilenos | 🇧🇴 Bolivians Bolivianos | 🇵🇪 Pesos Peruanos |
+|🇵🇾 Guaranis Paraguaios|🇨🇴 Peso Colombiano|🇲🇽  Pesos Mexicanos|
+|🇺🇸  Dólares Americano|🇨🇦  Dólares Canadenses|
 
+<br>
 
-Mas também converte criptomoedas como:
+||Europa / África||
+|:------------:|:------------:|:------------:|
+|🇧🇬  Lev Búlgaros| 🇨🇿  Coroas Checas| 🇩🇰  Coroas Dinamarquesas| 
+|🇬🇧  Libras Esterlinas| 🇭🇺  Florim Húngaros| 🇪🇺  Euros| 
+|🇨🇭  Francos Suiço| 🇳🇴  Coroas Norueguesas| 🇷🇺  Rublo Russos| 
+|🇸🇪  Coroas Suecas| 🇭🇷  Kunas Croatas| 🇵🇱  Złoty Polonêses| 
+|🇷🇴  Leu Romenos| 🇹🇷  Liras Turcas| 
 
-BTC - Bitcoin<br>
-LTC - Litecoin<br>
-ETH - Ethereum<br>
-ZEC - Zcash<br>
-XRP - Ripple<br>
-XMR - Monero<br>
-IOTA - IOTA<br>
-BTG - Bitcoin Gold
+<br>
+
+||Ásia / Oriente Médio / Oceania||
+|:------------:|:------------:|:------------:|
+|🇦🇺  Dólares Australianos| 🇳🇿  Dólares Neozelandês| 🇨🇳  Yuan Renminbi Chinês| 
+|🇭🇰  Dólares de Hong Kong| 🇮🇩  Rupias Indonesia| 🇮🇱  Shekel Israelenses| 
+|🇮🇳  Rupias Indianas| 🇯🇵  Ienes Japoneses| 🇰🇷  Won sul-coreano| 
+|🇲🇾  Ringgit Malaios| 🇹🇷  Liras Turcas| 🇷🇺  Rublo Russos| 
+|🇵🇭  Pesos Philipino| 🇸🇬  Dólares de Singapura| 🇹🇭  Baht Thailandês| 
+
+<br>
+
+||Criptomoedas|| 
+|:--------:|:--------:|:--------:|:--------:|
+|BTC - Bitcoin|LTC - Litecoin| ETH - Ethereum| ZEC - Zcash|
+|XRP - Ripple| XMR - Monero| IOTA - IOTA| BTG - Bitcoin Gold
 
 
 ## Exemplos de coisas que posso perguntar ao Tio Patinhas
