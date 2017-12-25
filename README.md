@@ -1,6 +1,16 @@
 ## Sobre 
 "Tio Patinhas" é um chatbot para Facebook messenger. Ele serve para informar a cotação de moedas diversas e também de algumas criptomoedas. Todas as mensagens são em português brasileiro.
 
+## Como falar com o Tio Patinhas?
+Há 3 maneiras simples!
+- Entrar em http://m.me/TioPatinhasBot <br>
+
+- Enviar uma mensagem pela página https://www.facebook.com/TioPatinhasBot/ <br>
+
+- Scannear, pelo aplicativo do Facebook Messenger, o QR Code abaixo: <br>
+
+![alt text](qrcode.jpg "m.me/TioPatinhasBot")
+
 
 ## De onde vem a cotação?
 A cotação é provida pela API https://www.cryptocompare.com/api/
