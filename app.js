@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 var callAPIAI = function(id,text){
 
-    console.log(text)
+    if (text == undefined) sendText(id,"Infelizmente ainda não posso lidar com esse tipo de pensagem :/");
+
     text = helpers.rsc(text);
 
     var reqObj = {
