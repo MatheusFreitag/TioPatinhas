@@ -49,10 +49,10 @@ var callAPIAI = function(id,text){
                 switch(acao){
                     
                     case "Oi":
-                        sendText(id,`Olá! Eu sou o bot Tio Patinhas :D\n Eu posso converter moedas, então me pergunte coisas como
-                        "Quanto é 1 bitcoin em reais?"\n "Quanto são 50 reais em dólares?"\n "30 euros em pesos uruguaios"\n
-                        Para saber mais sobre mim, visite https://matheusfreitag.github.io/TioPatinhas/ \n\n
-                        Como posso te ajudar hoje?`);
+                        sendText(id,"Olá! Eu sou o bot Tio Patinhas :D\n" +  "Eu posso converter moedas, então me pergunte coisas como\n\n" +
+                        "Quanto é 1 bitcoin em reais?\n" + "Quanto são 50 reais em dólares?\n"+ "30 euros em pesos uruguaios\n\n"+ 
+                        "Para saber mais sobre mim, visite https://matheusfreitag.github.io/TioPatinhas/ \n\n"+
+                        "Como posso te ajudar hoje?");
                         
                         break
                     case "Cotacao":
